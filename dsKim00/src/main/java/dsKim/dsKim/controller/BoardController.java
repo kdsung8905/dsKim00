@@ -2,6 +2,8 @@ package dsKim.dsKim.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,7 @@ import dsKim.dsKim.service.BoardService;
 
 public class BoardController {
 	
+	
 	@Autowired
 	private BoardService boardService;
 	
@@ -37,6 +40,7 @@ public class BoardController {
 	 */
 	@RequestMapping("/board/openBoardList.do")
 	public ModelAndView openBoardList() throws Exception{
+		
 		ModelAndView mav = new ModelAndView("/board/boardList");
 		
 		List<BoardDTO> list = boardService.selectBoardList();

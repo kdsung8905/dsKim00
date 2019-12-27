@@ -23,6 +23,6 @@ comment on column tbl_board.deleted_yn is '삭제여부';
 
 select * from tbl_board;
 
-drop table tbl_board;
+//drop table tbl_board;
 
-insert into tbl_board (boardIdx,title, content,creatorId,regDate) values (seq_board_bno.nextval, 'title3','content3', 'ad1m1in2', sysdate);
+insert into tbl_board (boardIdx,title, content,creatorId,regDate) values (seq_board_bno.nextval, '메가커피4','자몽에이드', 'ad1m1in1', sysdate);

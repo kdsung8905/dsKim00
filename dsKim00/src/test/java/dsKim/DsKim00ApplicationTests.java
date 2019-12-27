@@ -15,6 +15,8 @@ class DsKim00ApplicationTests {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	
+	
 	@Test
 	void contextLoads() {
 	}
@@ -23,5 +25,7 @@ class DsKim00ApplicationTests {
 	public void testSqlSession() throws Exception{
 		System.out.println(sqlSession.toString());
 	}
+	
+
 
 }

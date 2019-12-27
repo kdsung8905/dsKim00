@@ -24,6 +24,7 @@ import dsKim.dsKim.service.BoardService;
  *
  */
 @Controller
+
 public class BoardController {
 	
 	@Autowired

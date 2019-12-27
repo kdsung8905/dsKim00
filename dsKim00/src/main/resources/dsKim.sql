@@ -21,7 +21,7 @@ comment on column tbl_board.created_datetime is '생성시간';
 comment on column tbl_board.updated_datetime is '수정시간';
 comment on column tbl_board.deleted_yn is '삭제여부';
 
-select * from tbl_board;
+select * from tbl_board order by boardIdx desc;
 
 //drop table tbl_board;
 

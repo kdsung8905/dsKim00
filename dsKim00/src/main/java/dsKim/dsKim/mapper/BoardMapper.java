@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import dsKim.dsKim.dto.BoardDTO;
+import dsKim.dsKim.dto.BoardFileDTO;
 
 /**
  * @author ds.kim
@@ -19,5 +20,6 @@ public interface BoardMapper {
 	public void updateHitCount(int boardIdx) throws Exception;		//조회수 up
 	public void updateBoard(BoardDTO board) throws Exception;		//게시글 수정
 	public void deleteBoard(int boardIdx) throws Exception;			//게시글 삭제
+	public void insertBoardFileList(List<BoardFileDTO> list) throws Exception;
 	
 }

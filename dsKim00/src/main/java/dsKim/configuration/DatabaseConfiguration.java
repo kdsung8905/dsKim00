@@ -11,12 +11,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration// @springBootApplication안에 직접포함된건 아니지만 @springBootConfiguration에 포함되어있음
 @PropertySource("classpath:/application.properties") //application.properties를 사용할 수 있도록 설정파일 위치를 지정해줌
+@EnableTransactionManagement
 public class DatabaseConfiguration {
 	
 	@Autowired
@@ -56,6 +60,11 @@ public class DatabaseConfiguration {
 	@ConfigurationProperties(prefix ="mybatis.configuration")
 	public org.apache.ibatis.session.Configuration mybatisConfig(){
 		return new org.apache.ibatis.session.Configuration();
+	}
+	
+	@Bean
+	public PlatformTransactionManager transactionMannager() throws Exception{
+		return new DataSourceTransactionManager(dataSource());
 	}
 
 }

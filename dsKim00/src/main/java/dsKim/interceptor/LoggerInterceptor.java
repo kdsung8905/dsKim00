@@ -11,27 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 
-/*public class LoggerInterceptor implements HandlerInterceptor{
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-			Object handler) throws Exception{
-		log.debug("===========================================================     S T A R T     ===========================================================");
-		return true;
-	}
-	
-	
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, 
-			Object handler) throws Exception{
-		
-		log.debug("===========================================================     E N D     ===========================================================");
-	}
-	
-	
-	
-	
-	
-}*/
 
 public class LoggerInterceptor extends HandlerInterceptorAdapter{
 	

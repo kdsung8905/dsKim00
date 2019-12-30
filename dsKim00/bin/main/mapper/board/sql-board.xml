@@ -17,11 +17,37 @@
 	</select>
 	
 	<!-- 게시글 작성 -->
-	<insert id="insertBoard">
+	<insert id="insertBoard" parameterType="dsKim.dsKim.dto.BoardDTO" useGeneratedKeys="true" keyProperty="boardIdx">
+		<selectKey keyProperty="boardIdx" order="BEFORE" resultType="int">
+			select seq_board_bno.nextval from dual
+		</selectKey>
 		insert into tbl_board 
 			(boardIdx, title, content, creatorId, regDate) 
 		values 
-			(seq_board_bno.nextval,#{title},#{content},'admin12',sysdate)	
+			(#{boardIdx},#{title},#{content},'admin12',sysdate)	
+	</insert>
+	
+	<!--  파일저장 쿼리 -->
+	<insert id="insertBoardFileList" parameterType="dsKim.dsKim.dto.BoardFileDTO">
+		<selectKey keyProperty="fileIdx" order="BEFORE" resultType="int">
+			select seq_file_idx.nextval from dual
+		</selectKey>
+		
+		insert into tbl_file
+			(fileIdx, boardIdx, originalFileName, storeFilePath, fileSize, creatorId, regDate)
+		values 
+			
+			<foreach collection="list" item="item" separator=",">
+			(
+				#{item.fileIdx},
+				#{item.boardIdx},
+				#{item.originalFileName},
+				#{item.storeFilePath},
+				#{item.fileSize},
+				'admin',
+				sysdate
+			)
+		</foreach>
 	</insert>
 	
 	<!-- 게시글 상세정보 보기 -->

@@ -26,3 +26,23 @@ select * from tbl_board order by boardIdx desc;
 //drop table tbl_board;
 
 insert into tbl_board (boardIdx,title, content,creatorId,regDate) values (seq_board_bno.nextval, '메가커피4','자몽에이드', 'ad1m1in1', sysdate);
+
+
+create sequence seq_file_idx;
+
+//drop table tbl_file;
+
+create table tbl_file(
+fileIdx number,
+boardIdx number,
+originalFileName varchar2(500) not null,
+storeFilePath varchar2(500) not null,
+fileSize number not null,
+creatorId varchar2(50) not null,
+regDate DATE default sysdate,
+updateDate DATE default sysdate
+)
+
+select * from tbl_file;
+
+insert into tbl_file(fileIdx, boardIdx, originalFileName, storeFilePath, fileSize, creatorId, regDate) values (seq_file_idx.nextval, 63, 'originalFileName', 'storeFilePath', 1010, 'ad1m1in1', sysdate);

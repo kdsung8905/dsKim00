@@ -2,6 +2,8 @@ package dsKim.dsKim.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import dsKim.dsKim.dto.BoardDTO;
 
 /**
@@ -11,7 +13,7 @@ import dsKim.dsKim.dto.BoardDTO;
 public interface BoardService {
 	
 	public List<BoardDTO> selectBoardList() throws Exception;
-	public void insertBoard(BoardDTO board) throws Exception;
+	public void insertBoard(BoardDTO board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception;
 	public BoardDTO selectBoardDetail(int boardIdx) throws Exception;
 	public void updateBoard(BoardDTO board) throws Exception;
 	public void deleteBoard(int boardIdx) throws Exception;

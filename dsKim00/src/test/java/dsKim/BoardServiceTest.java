@@ -35,7 +35,7 @@ public class BoardServiceTest {
 		dto.setTitle("서비스테스트");
 		dto.setContent("서비스테스트");
 		
-		service.insertBoard(dto);
+		//service.insertBoard(dto);
 		log.info(dto);
 		
 	}

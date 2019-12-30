@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import dsKim.dsKim.dto.BoardDTO;
@@ -66,8 +67,8 @@ public class BoardController {
 	 * 새로운 게시글 등록
 	 */
 	@RequestMapping("/board/insertBoard.do")
-	public String insertBoard(BoardDTO board) throws Exception{
-		boardService.insertBoard(board);
+	public String insertBoard(BoardDTO board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception{
+		boardService.insertBoard(board, multipartHttpServletRequest);
 		return "redirect:/board/openBoardList.do";
 	}
 	
